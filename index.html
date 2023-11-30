@@ -7,51 +7,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="./assets/style.css" />
   <title>Recipe App</title>
 </head>
 
-<body>
-  <div class="nav">
-    <div>
-      <p class="appTitle">App Title</p>
-    </div>
-    
-    
-    <div>
-      <input placeholder="Recipe Search"></input>
-    </div>
-    
-    <div>
-      <p class="github">Github</p>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-<div class="main">
-  <p>Main Tab</p>
-<div class="upper-boxes">
-<div class="box box1">box1</div>
-<div class="box box2">box2</div>
-<div class="box box3">box3</div>
-</div>
-<div class="lower-boxes">
-<div class="box box4">box4</div>
-<div class="box box5">box5</div>
-<div class="box box6">box6</div>
-
-
-</div>
-</div>
-</div>
-</div>
-
-</hr>
-  <script src="./assets/js/script.js"></script>
+<body class="bg-neutral-100">
+  <main class="max-w-4xl mx-auto">
+    <nav class="flex flex-row justify-between items-center border border-sky-500 bg-sky-200 rounded-lg m-3 py-3 px-5 shadow-xl hover:bg-sky-300 transition-all duration-500 gap-5">
+      <h1 class="text-2xl font-black">Finger Food Finder</h1>
+      <form onsubmit="searchName()" class="flex flex-grow gap-3 max-w-[400px]">
+        <label>Search a Finger Food</label>
+        <input type="text" placeholder="Search for recipe"/>
+      </form>
+      <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
+    </nav>
+    <div id="foodContent" class="ml-3 text-white font-semibold px-3 py-2 bg-sky-500 rounded-lg"></div>
+    <!-- Modal -->
+    <div id="foodContentRecipe"></div>
+  </main>
+  <script src="./assets/index.js"></script>
 </body>
 
 </html>
