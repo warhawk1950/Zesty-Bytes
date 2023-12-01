@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = 'd21c891cc7d24269b62de05633d46e54';
+const apiKey = '1b4033d0fab74f9baa5f8b0d1950e612';
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
 const resultsContainer = document.getElementById('foodContent'); // Gets the container to display the recipe divs
@@ -7,19 +7,11 @@ const resultsContainer = document.getElementById('foodContent'); // Gets the con
 // Function to only run once the document is fully loaded and ready
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Function to run when the search button is clicked
-    function onSearchButtonClick(event) {
+    // Event listener for the form button click
+    searchForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevents the form from submitting
         searchRecipes();
-    }
-
-    // Event listener for the form button click
-    searchForm.addEventListener('click', onSearchButtonClick);
-
-    // Event listener for ingredient checkboxes 
-    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
-        checkbox.addEventListener('change', onSearchButtonClick);
-    });
+    })
 
     // Function to actually run searched Recipes 
     function searchRecipes() {
@@ -38,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fetch(apiUrl + ingredientsQuery)
                     .then(response => response.json())
                     .then(data => {
+
                         // Clear any existing results
                         resultsContainer.innerHTML = '';
 
@@ -50,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     });
             } else {
+                
                 // Fetch API data without the checkboxes 
                 fetch(apiUrl)
                     .then(response => response.json())
