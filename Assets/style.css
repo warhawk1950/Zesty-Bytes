@@ -1,0 +1,104 @@
+/* body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: black; 
+    color: white; 
+  }
+  
+.nav {
+  white-space: nowrap;
+  justify-content: center;
+  justify-content: space-between;
+  background-color: red;
+  height: 100px;
+} 
+
+.appTitle {
+  margin-left: auto;
+  text-align: center;
+  align-items: center;
+  background-color: red;
+}
+
+input {
+  text-align: center;
+  justify-content: left;
+  margin-top: 40px;
+}
+
+.github {
+  margin-right: auto;
+  background-color: red;
+  }
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: red;
+  height: 500px;
+  }
+
+.upper-boxes,
+.lower-boxes {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.box {
+  text-align: center;
+  margin: 50px;
+}
+
+.box1 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+ }
+
+.box2 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+}
+
+.box3 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+}
+
+.box4 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+ }
+
+.box5 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+}
+
+.box6 {
+  background-color: black;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top: 30px;
+}
+ */
