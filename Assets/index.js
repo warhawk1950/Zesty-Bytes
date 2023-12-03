@@ -1,6 +1,6 @@
 // DOM Elements and Global Variables
-// DOM Elements and Global Variables
 const apiKey = '9a3fd546fabc4c89b132821f2d49569b';
+
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
 const resultsContainer = document.getElementById('foodContent'); // Gets the container to display the recipe divs
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Prevents the form from submitting
         searchRecipes();
     })
-   
+
     // Function to actually run searched Recipes 
     function searchRecipes() {
 
@@ -78,6 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Invokes the function
         displaySearchedEntries();
 
+    // Function to actually run searched Recipes 
+    function searchRecipes() {
+        const selectedIngr = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value); // Array of selected ingredients from checkboxes
+        const searchTerm = searchInput.value.trim(); // Trim search recipe name
+
+
         // Make sure that results only pull if something is checked or typed
         if (selectedIngr.length > 0 || searchTerm !== '') {
             // Spoonacular API URL Request to search recipe name with Appetizer & only 6 result parameters
@@ -85,13 +91,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (selectedIngr.length > 0) {
                 const ingredientsQuery = selectedIngr.map(ingredient => `&includeIngredients=${ingredient}`).join(''); // Query for selected checkboxes
-                
-            // Fetch API data along with checkboxes & query parameters
+
+
+                // Fetch API data along with checkboxes & query parameters
+
                 fetch(apiUrl + ingredientsQuery)
                     .then(response => response.json())
                     .then(data => {
-
-                       // Clear any existing results
                         resultsContainer.innerHTML = '';
 
                         // Display each recipe title in a separate div as 6 different divs
@@ -125,5 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
             resultsContainer.innerHTML = '';
         }
     }
+}
+
 });
 
