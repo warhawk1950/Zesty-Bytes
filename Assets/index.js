@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = '9a3fd546fabc4c89b132821f2d49569b';
+const apiKey = 'd21c891cc7d24269b62de05633d46e54';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
@@ -13,22 +13,58 @@ document.addEventListener('DOMContentLoaded', function () {
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevents the form from submitting
         searchRecipes();
+        displayFromLocalStorage();
     })
+
+    function displayFromLocalStorage() {
+        // Retrieves saved entries from local storage
+        const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
+        savedEntriesDiv.innerHTML = '';
+        if (savedEntries.length > 0) {
+            savedEntries.forEach(entry => {
+                // Actually creates the div
+                const div = document.createElement('div');
+                div.classList.add('searched-entry');
+                // Creates a <p> element for displaying search terms
+                const searchPara = document.createElement('p');
+                // Creates the anchor element to link to something else
+                const link = document.createElement('a')
+
+                searchPara.textContent = `${entry.searchTerm}`;
+
+                // Standard event listener but changes the font color with CSS but
+                // It goes back to normal if clicked again, not sure how to fix that yet
+                searchPara.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    searchPara.classList.toggle('clicked')
+
+                    const modal = document.getElementById('myModal');
+                    modal.style.display = modal.style.display === 'block' ? 'block' : 'block';
+
+                    // What the entry does when it is clicked will go here
+                    // What the entry does when it is clicked will go here
+                    // What the entry does when it is clicked will go here
+
+                    console.log(`Clicked on ${entry.searchTerm}`);
+                })
+
+                // Appends the paragraph and anchor element to div
+                div.appendChild(link);
+                div.appendChild(searchPara);
+                savedEntriesDiv.appendChild(div);
+            });
+        }
+    }
 
     // Function to actually run searched Recipes 
     function searchRecipes() {
-
         const selectedIngr = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value); // Array of selected ingredients from checkboxes
         const searchTerm = searchInput.value.trim(); // Trim search recipe name
-        
-        // Retrieves saved entries from local storage
-        const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
-
 
         // Make sure that results only pull if something is checked or typed
         if (selectedIngr.length > 0 || searchTerm !== '') {
             // Spoonacular API URL Request to search recipe name with Appetizer & only 6 result parameters
-            const apiUrl = `https://api.spoonacular.com/recipes/search?apiKey=${apiKey}&query=${searchTerm}&type=appetizer&number=6`;
+            const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}&type=appetizer&number=6`;
 
             if (selectedIngr.length > 0) {
                 const ingredientsQuery = selectedIngr.map(ingredient => `&includeIngredients=${ingredient}`).join(''); // Query for selected checkboxes
@@ -47,38 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             resultsContainer.appendChild(recipeElement);
                         });
                         // Loops through each saved entry to use
-                        savedEntries.forEach(entry => {
-                            // Actually creates the div
-                            const div = document.createElement('div');
-                            div.classList.add('searched-entry');
-                            // Creates a <p> element for displaying search terms
-                            const searchPara = document.createElement('p');
-                            // Creates the anchor element to link to something else
-                            const link = document.createElement('a')
 
-                            searchPara.textContent = `${entry.searchTerm}`;
-
-                            // Standard event listener but changes the font color with CSS but
-                            // It goes back to normal if clicked again, not sure how to fix that yet
-                            searchPara.addEventListener('click', function (event) {
-                                event.preventDefault();
-                                searchPara.classList.toggle('clicked')
-
-                                const modal = document.getElementById('myModal');
-                                modal.style.display = modal.style.display === 'block' ? 'block' : 'block';
-
-                                // What the entry does when it is clicked will go here
-                                // What the entry does when it is clicked will go here
-                                // What the entry does when it is clicked will go here
-
-                                console.log(`Clicked on ${entry.searchTerm}`);
-                            })
-
-                            // Appends the paragraph and anchor element to div
-                            div.appendChild(link);
-                            div.appendChild(searchPara);
-                            savedEntriesDiv.appendChild(div);
-                        });
                     });
             } else {
 
