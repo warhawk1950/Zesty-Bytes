@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = 'd21c891cc7d24269b62de05633d46e54';
+const apiKey = '1b4033d0fab74f9baa5f8b0d1950e612';
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const resultsContainer = document.getElementById('foodContent'); // Gets the container to display the recipe divs
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (selectedIngr.length > 0) {
 
                 const ingredientsQuery = selectedIngr.map(ingredient => `&includeIngredients=${ingredient}`).join(''); // Query for selected checkboxes
-                
+
                 // Fetch API data along with checkboxes & query parameters
                 fetch(apiUrl + ingredientsQuery)
                     .then(response => response.json())
@@ -70,3 +70,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
