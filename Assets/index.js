@@ -1,6 +1,6 @@
 // DOM Elements and Global Variables
 
-const apiKey = '2f0fec85982749e2b27c11e993695c3d';
+const apiKey = 'd21c891cc7d24269b62de05633d46e54';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
@@ -11,11 +11,6 @@ const toggleBtn = document.getElementById('toggleBtn');
 
 // Function to only run once the document is fully loaded and ready
 // document.addEventListener('DOMContentLoaded', function () {
-
-
-// Function to only run once the document is fully loaded and ready
-// document.addEventListener('DOMContentLoaded', function () {
-
 
     // Event listener for the form button click
     searchForm.addEventListener('submit', function (event) {
@@ -36,32 +31,22 @@ const toggleBtn = document.getElementById('toggleBtn');
                 // Creates a <p> element for displaying search terms
                 const searchPara = document.createElement('p');
                 // Creates the anchor element to link to something else
-
-                const link = document.createElement('a');
-
                 const link = document.createElement('a')
-
-
                 searchPara.textContent = `${entry.searchTerm}`;
-
                 // Standard event listener but changes the font color with CSS but
                 // It goes back to normal if clicked again, not sure how to fix that yet
                 searchPara.addEventListener('click', function (event) {
                     event.preventDefault();
                     searchPara.classList.toggle('clicked')
-
                     const modal = document.getElementById('myModal');
                     modal.style.display = modal.style.display === 'block' ? 'block' : 'block';
-
                     // What the entry does when it is clicked will go here
                     // What the entry does when it is clicked will go here
                     // What the entry does when it is clicked will go here
-
                     console.log(`Clicked on ${entry.searchTerm}`);
                 })
-
                 // Appends the paragraph and anchor element to div
-                div.appendChild(link);
+                // div.appendChild(link);
                 div.appendChild(searchPara);
                 savedEntriesDiv.appendChild(div);
             });
@@ -86,6 +71,10 @@ const toggleBtn = document.getElementById('toggleBtn');
     }
     async function displaySingleRecipe(id) {
         const data = await fetchSingleRecipe(id);
+
+        // Save id/recipe name to local storage
+        saveToLocalStorage({name: data.title});
+
         const title = document.getElementById('recipeTitle');
         title.textContent = '';
         title.textContent = data.title;
@@ -108,6 +97,21 @@ const toggleBtn = document.getElementById('toggleBtn');
         box.appendChild(summary);
         box.appendChild(instructions);
         toggleBtn.click();
+    }
+    // Function to save recipie name into local storage
+    function saveToLocalStorage(recipe) {
+        const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
+        // Check if the entry already exists in the local storage
+        const existingEntryIndex = savedEntries.findIndex(entry => entry.id === recipe.id);
+        if (existingEntryIndex !== -1) {
+        // Remove the existing entry to move it to the top
+        savedEntries.splice(existingEntryIndex, 1);
+        }
+        // Add the new entry to the beginning of the array
+        savedEntries.unshift(recipe);
+
+        // Save the updated array back to local storage
+        localStorage.setItem('SavedEntries', JSON.stringify(savedEntries));
     }
     // Function to actually run searched Recipes 
     async function searchRecipes() {
@@ -162,7 +166,3 @@ const toggleBtn = document.getElementById('toggleBtn');
     }
     init()
 // })
-
-
-   
-
