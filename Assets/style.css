@@ -4,4 +4,14 @@ ol {
   margin-left: 2rem !important;
 }
 
+.word-wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
+.recipe-container {
+  max-width: 300px;
+  width: 100%;
+  align-self: end;
+}
