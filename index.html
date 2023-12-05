@@ -10,6 +10,9 @@
 
   <link rel="stylesheet" href="./assets/style.css" />
 
+
+
+
   <title>Recipe App</title>
 </head>
 
@@ -20,6 +23,7 @@
       <h1 class="text-2xl font-black">Finger Food Finder</h1>
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
+
         <div class="relative">
         <input type="text" placeholder="Search for recipe" />
         <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
@@ -32,12 +36,25 @@
       </form>
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
+
+        <input type="text" placeholder="Search for recipe"/>
+        <button type="submit"
+          class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >Search</button>
+      </form>
+      <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
+    </nav>
+    <div id="foodContent" class="ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg"></div>
+    <!-- Modal -->
+    <div id="foodContentRecipe"></div>
+
     <div>
       <label>Main Ingredients:</label>
       <input type="checkbox" id="ingredient1" value="Chicken"/>
       <label for="ingredient1">Chicken</label>
       <input type="checkbox" id="ingredient2" value="Cheese"/>
       <label for="ingredient2">Cheese</label>
+
       <!-- Div for saved searches-->
       <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
       </div>
@@ -91,6 +108,26 @@
 
   <script src="./Assets/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+      <!-- <button type="submit" class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700">checkboxes</button>  -->
+      <!-- Add more checkboxes as needed -->
+
+      <!-- Div for saved searches-->
+      <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg"></div>
+    </div>
+      <!-- Modal Div-->
+    <div id="myModal" style="display: none;">
+      <p>RECIPE INFORMATION</p>
+      </div>
+    </div>
+
+   </main>
+
+    </div>
+  </main>
+
+  <script src="./Assets/index.js"></script>
+
 </body>
 
 </html>

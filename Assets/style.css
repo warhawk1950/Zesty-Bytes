@@ -1,4 +1,11 @@
+
 ol {
   list-style: decimal !important;
   margin-left: 2rem !important;
 }
+
+.clicked {
+    color: purple;
+}
+
+
