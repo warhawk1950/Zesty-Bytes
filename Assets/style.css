@@ -1,4 +1,7 @@
-.clicked {
-    color: purple;
+
+ol {
+  list-style: decimal !important;
+  margin-left: 2rem !important;
 }
+
 

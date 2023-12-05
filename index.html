@@ -9,6 +9,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="./assets/style.css" />
+
   <title>Recipe App</title>
 </head>
 
@@ -19,40 +20,77 @@
       <h1 class="text-2xl font-black">Finger Food Finder</h1>
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
-        <input type="text" placeholder="Search for recipe"/>
+        <div class="relative">
+        <input type="text" placeholder="Search for recipe" />
+        <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
+          <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test</p>
+          <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test2</p>
+        </div>
+        </div>
         <button type="submit"
-          class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >Search</button>
+          class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
       </form>
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
-    <div id="foodContent" class="ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg"></div>
-    <!-- Modal -->
-    <div id="foodContentRecipe"></div>
     <div>
       <label>Main Ingredients:</label>
       <input type="checkbox" id="ingredient1" value="Chicken"/>
       <label for="ingredient1">Chicken</label>
       <input type="checkbox" id="ingredient2" value="Cheese"/>
       <label for="ingredient2">Cheese</label>
-      <!-- <button type="submit" class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700">checkboxes</button>  -->
-      <!-- Add more checkboxes as needed -->
-
       <!-- Div for saved searches-->
-      <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg"></div>
+      <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
+      </div>
     </div>
-      <!-- Modal Div-->
-    <div id="myModal" style="display: none;">
-      <p>RECIPE INFORMATION</p>
+    <!-- This is the search results -->
+    <div id="foodContent" class="text-white font-semibold bg-blue-500 rounded-lg flex flex-wrap gap-5"
+      style="padding: 20px;">
+    </div>
+    <!-- Modal toggle -->
+    <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
+      type="button">
+      Toggle modal
+    </button>
+
+    <!-- Main modal -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            <h3 id="recipeTitle" class="text-2xl font-black text-gray-900 dark:text-white">
+            </h3>
+            <button type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="default-modal">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <div class="p-4 md:p-5 flex flex-row justify-between items-center font-bold">
+            <p>User Score: <span id="userScore"></span>%</p>
+            <p>Ready in: <span id="readyTime"></span> minutes</p>
+            <p>Servings: <span id="servings"></span></p>
+          </div>
+          <div id="recipeDesc" class="p-4 md:p-5 space-y-4">
+          </div>
+        </div>
       </div>
     </div>
 
-   </main>
+  </main>
 
-    </div>
+  </div>
   </main>
 
   <script src="./Assets/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>
