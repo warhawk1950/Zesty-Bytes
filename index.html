@@ -16,16 +16,16 @@
 <body class="bg-neutral-100">
   <main class="max-w-4xl mx-auto">
     <nav
-      class="flex flex-row justify-between items-center border border-blue-50 bg-blue-50 rounded-lg m-3 py-3 px-5 shadow-xl hover:bg-sky-300 transition-all duration-500 gap-5">
+      class="flex flex-row justify-between items-center border border-blue-50 bg-blue-50 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
       <h1 class="text-2xl font-black">Finger Food Finder</h1>
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
         <div class="relative">
         <input type="text" placeholder="Search for recipe" />
-        <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
+        <!-- <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
           <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test</p>
           <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test2</p>
-        </div>
+        </div> -->
         </div>
         <button type="submit"
           class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -39,13 +39,13 @@
       <input type="checkbox" id="ingredient2" value="Cheese"/>
       <label for="ingredient2">Cheese</label>
       <!-- Div for saved searches-->
-      <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
-      </div>
+      <!-- <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
+      </div> -->
     </div>
     <!-- This is the search results -->
-    <div id="foodContent" class="text-white font-semibold bg-blue-500 rounded-lg flex flex-wrap gap-5"
-      style="padding: 20px;">
-    </div>
+    <div id="foodContent" class="text-white font-semibold bg-blue-500 rounded-lg flex flex-wrap gap-8 justify-center"
+    style="padding: 20px;">
+  </div>
     <!-- Modal toggle -->
     <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
       type="button">

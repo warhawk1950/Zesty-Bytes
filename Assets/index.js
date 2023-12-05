@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = '2f0fec85982749e2b27c11e993695c3d';
+const apiKey = '3bd2964a72284bbe96c1747a38e6b085';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
@@ -67,7 +67,8 @@ const toggleBtn = document.getElementById('toggleBtn');
             const img = document.createElement('img');
             h3.textContent = result.title;
             img.src = result.image;
-            recipeElement.classList.add('mx-auto')
+            h3.classList.add('word-wrapper');
+            recipeElement.classList.add('recipe-container');
             recipeElement.appendChild(h3);
             recipeElement.appendChild(img);
             resultsContainer.appendChild(recipeElement);
@@ -146,7 +147,7 @@ const toggleBtn = document.getElementById('toggleBtn');
         }
     }
     async function init() {
-        const data = await fetchSearchTerm('wings');
+        const data = await fetchSearchTerm('beef');
         displayHomePage(data);
     }
     init()
