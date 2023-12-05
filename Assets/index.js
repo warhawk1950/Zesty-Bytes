@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = '3bd2964a72284bbe96c1747a38e6b085';
+const apiKey = '2f0fec85982749e2b27c11e993695c3d';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
@@ -10,6 +10,11 @@ const toggleBtn = document.getElementById('toggleBtn');
 
 // Function to only run once the document is fully loaded and ready
 // document.addEventListener('DOMContentLoaded', function () {
+
+
+// Function to only run once the document is fully loaded and ready
+// document.addEventListener('DOMContentLoaded', function () {
+
 
     // Event listener for the form button click
     searchForm.addEventListener('submit', function (event) {
@@ -30,7 +35,11 @@ const toggleBtn = document.getElementById('toggleBtn');
                 // Creates a <p> element for displaying search terms
                 const searchPara = document.createElement('p');
                 // Creates the anchor element to link to something else
+
                 const link = document.createElement('a');
+
+                const link = document.createElement('a')
+
 
                 searchPara.textContent = `${entry.searchTerm}`;
 
@@ -57,6 +66,7 @@ const toggleBtn = document.getElementById('toggleBtn');
             });
         }
     }
+
     function displayHomePage(data) {
         data.results.forEach(result => {
             console.log(result);
@@ -152,3 +162,7 @@ const toggleBtn = document.getElementById('toggleBtn');
     }
     init()
 // })
+
+
+   
+
