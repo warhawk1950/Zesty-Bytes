@@ -20,28 +20,31 @@
       <h1 class="text-2xl font-black">Finger Food Finder</h1>
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
+        <div class="relative">
         <input type="text" placeholder="Search for recipe" />
+        <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
+          <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test</p>
+          <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test2</p>
+        </div>
+        </div>
         <button type="submit"
           class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
       </form>
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
-    <div id="foodContent" class="ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
-    </div>
-    <!-- Modal -->
-    <div id="foodContentRecipe"></div>
     <div>
       <label>Main Ingredients:</label>
-      <input type="checkbox" id="ingredient1" value="Chicken" onclick="onSearchButtonClick()" />
+      <input type="checkbox" id="ingredient1" value="Chicken"/>
       <label for="ingredient1">Chicken</label>
-      <input type="checkbox" id="ingredient2" value="Cheese" onclick="onSearchButtonClick()" />
+      <input type="checkbox" id="ingredient2" value="Cheese"/>
       <label for="ingredient2">Cheese</label>
-      <!-- <button type="submit" class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700" onclick="onSearchButtonClick()">checkboxes</button>  -->
-      <!-- Add more checkboxes as needed -->
-
       <!-- Div for saved searches-->
       <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
       </div>
+    </div>
+    <!-- This is the search results -->
+    <div id="foodContent" class="text-white font-semibold bg-blue-500 rounded-lg flex flex-wrap gap-5"
+      style="padding: 20px;">
     </div>
     <!-- Modal toggle -->
     <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
@@ -70,7 +73,6 @@
               <span class="sr-only">Close modal</span>
             </button>
           </div>
-          <!-- Modal body -->
           <div class="p-4 md:p-5 flex flex-row justify-between items-center font-bold">
             <p>User Score: <span id="userScore"></span>%</p>
             <p>Ready in: <span id="readyTime"></span> minutes</p>

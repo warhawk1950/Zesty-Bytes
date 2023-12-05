@@ -59,9 +59,8 @@ const toggleBtn = document.getElementById('toggleBtn');
     }
     function displayHomePage(data) {
         data.results.forEach(result => {
+            console.log(result);
             const recipeElement = document.createElement('div');
-            recipeElement.setAttribute('data-modal-target', 'default-modal');
-            recipeElement.setAttribute('data-modal-toggle', 'default-modal');
             recipeElement.addEventListener('click', () => displaySingleRecipe(result.id));
             recipeElement.classList.add('cursor-pointer');
             const h3 = document.createElement('h3');
@@ -75,7 +74,6 @@ const toggleBtn = document.getElementById('toggleBtn');
         })
     }
     async function displaySingleRecipe(id) {
-        console.log('Hello');
         const data = await fetchSingleRecipe(id);
         const title = document.getElementById('recipeTitle');
         title.textContent = '';
@@ -112,6 +110,7 @@ const toggleBtn = document.getElementById('toggleBtn');
             const data = await fetchSearchTerm(searchTerm);
             displayHomePage(data);
         }
+
     }
     async function fetchSingleRecipe(id) {
         const URL = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${apiKey}`
