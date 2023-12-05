@@ -2,14 +2,10 @@
 
 const apiKey = '2f0fec85982749e2b27c11e993695c3d';
 
-const apiKey = 'd21c891cc7d24269b62de05633d46e54';
-
-
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
 const resultsContainer = document.getElementById('foodContent'); // Gets the container to display the recipe divs
 const savedEntriesDiv = document.getElementById('savedEntriesDiv');
-
 const modal = document.getElementById('default-modal');
 const toggleBtn = document.getElementById('toggleBtn');
 
@@ -18,7 +14,7 @@ const toggleBtn = document.getElementById('toggleBtn');
 
 
 // Function to only run once the document is fully loaded and ready
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
 
     // Event listener for the form button click
@@ -168,69 +164,5 @@ document.addEventListener('DOMContentLoaded', function () {
 // })
 
 
-    // Function to actually run searched Recipes 
-    function searchRecipes() {
-        const selectedIngr = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value); // Array of selected ingredients from checkboxes
-        const searchTerm = searchInput.value.trim(); // Trim search recipe name
-
-        // Make sure that results only pull if something is checked or typed
-        if (selectedIngr.length > 0 || searchTerm !== '') {
-            // Spoonacular API URL Request to search recipe name with Appetizer & only 6 result parameters
-            const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}&type=appetizer&number=6`;
-
-            if (selectedIngr.length > 0) {
-                const ingredientsQuery = selectedIngr.map(ingredient => `&includeIngredients=${ingredient}`).join(''); // Query for selected checkboxes
-
-                // Fetch API data along with checkboxes & query parameters
-                fetch(apiUrl + ingredientsQuery)
-                    .then(response => response.json())
-                    .then(data => {
-                        resultsContainer.innerHTML = '';
-
-                        // Display each recipe title in a separate div as 6 different divs
-                        data.results.forEach(result => {
-                            const recipeElement = document.createElement('div');
-                            recipeElement.classList.add('box');
-                            recipeElement.textContent = result.title;
-                            resultsContainer.appendChild(recipeElement);
-                        });
-                        // Loops through each saved entry to use
-
-                    });
-            } else {
-
-                // Fetch API data without the checkboxes 
-                fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Clear any existing results
-                        resultsContainer.innerHTML = '';
-
-                        // Display each recipe title in a separate div as 6 different divs
-                        data.results.forEach(result => {
-                            const recipeElement = document.createElement('div');
-                            recipeElement.classList.add('box');
-                            recipeElement.textContent = result.title;
-                            resultsContainer.appendChild(recipeElement);
-                        });
-                    });
-            }
-            // Saves the search entries and checked boxes into the local storage
-            const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || []
-            // Creates a new entry object for the search
-            const newEntry = {
-                searchTerm,
-                Ingredients: selectedIngr
-            };
-            // Adds a new entry into the array
-            savedEntries.push(newEntry);
-            // Saves array into local storage
-            localStorage.setItem('SavedEntries', JSON.stringify(savedEntries));
-
-        } else {
-            // If no checkboxes are checked and the search is empty, clear results container 
-            resultsContainer.innerHTML = '';
-        }
-    }
-});
+   
 
