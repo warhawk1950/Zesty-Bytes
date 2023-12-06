@@ -1,5 +1,5 @@
 // DOM Elements and Global Variables
-const apiKey = '2f0fec85982749e2b27c11e993695c3d';
+const apiKey = '3bd2964a72284bbe96c1747a38e6b085';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
@@ -38,8 +38,6 @@ const toggleBtn = document.getElementById('toggleBtn');
 
                 const link = document.createElement('a');
 
-                const link = document.createElement('a')
-
 
                 searchPara.textContent = `${entry.searchTerm}`;
 
@@ -69,7 +67,6 @@ const toggleBtn = document.getElementById('toggleBtn');
 
     function displayHomePage(data) {
         data.results.forEach(result => {
-            console.log(result);
             const recipeElement = document.createElement('div');
             recipeElement.addEventListener('click', () => displaySingleRecipe(result.id));
             recipeElement.classList.add('cursor-pointer');
@@ -157,7 +154,11 @@ const toggleBtn = document.getElementById('toggleBtn');
         }
     }
     async function init() {
-        const data = await fetchSearchTerm('beef');
+        let loading = document.createElement('p');
+        resultsContainer.appendChild(loading);
+        loading.textContent = 'Loading...';
+        const data = await fetchSearchTerm('wings');
+        resultsContainer.removeChild(loading);
         displayHomePage(data);
     }
     init()

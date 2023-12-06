@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="bg-gray-700 text-white" lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -15,12 +15,11 @@
 
 <body class="bg-neutral-100">
   <main class="max-w-4xl mx-auto">
-    <nav
-      class="flex flex-row justify-between items-center border border-blue-50 bg-blue-50 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
+    <nav class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
       <h1 class="text-2xl font-black">Finger Food Finder</h1>
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
-        <div class="relative">
+        <div class="text-gray-900 relative">
         <input type="text" placeholder="Search for recipe" />
         <!-- <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
           <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test</p>
@@ -28,7 +27,7 @@
         </div> -->
         </div>
         <button type="submit"
-          class="px-3 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+          class="px-3 py-2.5 text-sm font-medium text-white bg-green-800 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
       </form>
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
@@ -43,7 +42,7 @@
       </div> -->
     </div>
     <!-- This is the search results -->
-    <div id="foodContent" class="text-white font-semibold bg-blue-500 rounded-lg flex flex-wrap gap-8 justify-center"
+    <div id="foodContent" class="text-white font-semibold bg-gray-900 rounded-lg flex flex-wrap gap-8 justify-center"
     style="padding: 20px;">
   </div>
     <!-- Modal toggle -->
@@ -57,7 +56,7 @@
       class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-gray-700 text-green-400 rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <h3 id="recipeTitle" class="text-2xl font-black text-gray-900 dark:text-white">
