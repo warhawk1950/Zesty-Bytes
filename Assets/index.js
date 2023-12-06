@@ -22,11 +22,7 @@ const dropdownList = document.getElementById('dropdownList');
         
     // Get the search term from the input field
     const searchTerm = searchInput.value.trim();
-    // Save the search term to local storage
-    saveToLocalStorage(searchTerm);
     })
-
-    
 
     searchInput.addEventListener('focus', function() {
         dropdownList.style.display = 'block';
@@ -43,8 +39,6 @@ const dropdownList = document.getElementById('dropdownList');
             dropdownList.style.display = 'none'; // Hide the dropdown
         }
       });
-
-    
 
     function displayHomePage(data) {
         data.results.forEach(result => {
@@ -93,16 +87,16 @@ const dropdownList = document.getElementById('dropdownList');
         toggleBtn.click();
     }
     // Function to save recipie name into local storage
-    function saveToLocalStorage(searchTerm) {
+    function saveToLocalStorage(recipeName) {
         const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
         // Check if the entry already exists in the local storage
-        const existingEntryIndex = savedEntries.findIndex(entry => entry === searchTerm);
+        const existingEntryIndex = savedEntries.findIndex(entry => entry === recipeName);
         if (existingEntryIndex !== -1) {
         // Remove the existing entry to move it to the top
         savedEntries.splice(existingEntryIndex, 1);
         }
         // Add the new entry to the beginning of the array
-        savedEntries.unshift(searchTerm);
+        savedEntries.unshift(recipeName);
 
         // Save the updated array back to local storage
         localStorage.setItem('SavedEntries', JSON.stringify(savedEntries));
