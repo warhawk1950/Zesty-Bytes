@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="bg-gray-700 text-white" lang="en">
+<html class="bg-gray-700 text-white" lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -20,7 +21,8 @@
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
         <div class="text-gray-900 relative">
-        <input type="text" placeholder="Search for recipe" />
+        <input type="text" id="inputField" placeholder="Search for recipe" />
+        <ul class="dropdownList" id="dropdownList"></ul>
         <!-- <div class="absolute top-[30px] left-[0] z-50 bg-white border border-black w-full  py-2 flex flex-col gap-2">
           <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test</p>
           <p class="hover:bg-blue-200 transition-all duration-105 pl-3 cursor-pointer">test2</p>
@@ -33,11 +35,24 @@
     </nav>
     <div>
       <label>Main Ingredients:</label>
-      <input type="checkbox" id="ingredient1" value="Chicken"/>
-      <label for="ingredient1">Chicken</label>
-      <input type="checkbox" id="ingredient2" value="Cheese"/>
-      <label for="ingredient2">Cheese</label>
+      <input type="checkbox" id="ingredient1" value="Beef"/>
+      <label for="ingredient1">Beef</label>
+      <input type="checkbox" id="ingredient2" value="Chicken"/>
+      <label for="ingredient2">Chicken</label>
+      <input type="checkbox" id="ingredient3" value="Beef"/>
+      <label for="ingredient3">Pork</label>
+      <input type="checkbox" id="ingredient4" value="Fish"/>
+      <label for="ingredient4">Fish</label>
+      <input type="checkbox" id="ingredient5" value="Cheese"/>
+      <label for="ingredient5">Cheese</label>
+      <input type="checkbox" id="ingredient6" value="Sweet"/>
+      <label for="ingredient6">Sweet</label>
+      <input type="checkbox" id="ingredient7" value="Spicy"/>
+      <label for="ingredient7">Spicy</label>
+
+
       <!-- Div for saved searches-->
+
       <!-- <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
       </div> -->
     </div>
