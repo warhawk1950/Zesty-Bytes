@@ -1,6 +1,6 @@
 // DOM Elements and Global Variables
 
-const apiKey = '2f0fec85982749e2b27c11e993695c3d';
+const apiKey = 'da29116cf1a544ca9b0bf505cb4bac2e';
 
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
@@ -10,6 +10,8 @@ const savedEntriesDiv = document.getElementById('savedEntriesDiv');
 const modal = document.getElementById('default-modal');
 const toggleBtn = document.getElementById('toggleBtn');
 
+const dropdownList = document.getElementById('dropdownList');
+
 // Function to only run once the document is fully loaded and ready
 // document.addEventListener('DOMContentLoaded', function () {
 
@@ -17,8 +19,31 @@ const toggleBtn = document.getElementById('toggleBtn');
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevents the form from submitting
         searchRecipes();
-        displayFromLocalStorage();
+        
+    // Get the search term from the input field
+    const searchTerm = searchInput.value.trim();
+    // Save the search term to local storage
+    saveToLocalStorage(searchTerm);
+    displayFromLocalStorage();
     })
+
+    
+
+    inputField.addEventListener('focus', function() {
+        dropdownList.style.display = 'block';
+      });
+      
+      inputField.addEventListener('blur', function() {
+        dropdownList.style.display = 'none';
+      });
+      
+      // Listen for click events on the dropdown list items
+      dropdownList.addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI') {
+          inputField.value = event.target.textContent; // Set input value to clicked item
+          dropdownList.style.display = 'none'; // Hide the dropdown
+        }
+      });
 
     function displayFromLocalStorage() {
         // Retrieves saved entries from local storage
@@ -32,7 +57,7 @@ const toggleBtn = document.getElementById('toggleBtn');
                 // Creates a <p> element for displaying search terms
                 const searchPara = document.createElement('p');
                 // Creates the anchor element to link to something else
-                const link = document.createElement('a')
+               
                 searchPara.textContent = `${entry.searchTerm}`;
                 // Standard event listener but changes the font color with CSS but
                 // It goes back to normal if clicked again, not sure how to fix that yet
@@ -101,16 +126,16 @@ const toggleBtn = document.getElementById('toggleBtn');
         toggleBtn.click();
     }
     // Function to save recipie name into local storage
-    function saveToLocalStorage(recipe) {
+    function saveToLocalStorage(searchTerm) {
         const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
         // Check if the entry already exists in the local storage
-        const existingEntryIndex = savedEntries.findIndex(entry => entry.id === recipe.id);
+        const existingEntryIndex = savedEntries.findIndex(entry => entry === searchTerm);
         if (existingEntryIndex !== -1) {
         // Remove the existing entry to move it to the top
         savedEntries.splice(existingEntryIndex, 1);
         }
         // Add the new entry to the beginning of the array
-        savedEntries.unshift(recipe);
+        savedEntries.unshift(searchTerm);
 
         // Save the updated array back to local storage
         localStorage.setItem('SavedEntries', JSON.stringify(savedEntries));
