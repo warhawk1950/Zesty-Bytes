@@ -1,6 +1,6 @@
 // DOM Elements and Global Variables
 
-const apiKey = 'da29116cf1a544ca9b0bf505cb4bac2e';
+const apiKey = 'd21c891cc7d24269b62de05633d46e54';
 
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
@@ -24,60 +24,27 @@ const dropdownList = document.getElementById('dropdownList');
     const searchTerm = searchInput.value.trim();
     // Save the search term to local storage
     saveToLocalStorage(searchTerm);
-    displayFromLocalStorage();
     })
 
     
 
-    inputField.addEventListener('focus', function() {
+    searchInput.addEventListener('focus', function() {
         dropdownList.style.display = 'block';
       });
       
-      inputField.addEventListener('blur', function() {
+      searchInput.addEventListener('blur', function() {
         dropdownList.style.display = 'none';
       });
       
       // Listen for click events on the dropdown list items
       dropdownList.addEventListener('click', function(event) {
         if (event.target.tagName === 'LI') {
-          inputField.value = event.target.textContent; // Set input value to clicked item
-          dropdownList.style.display = 'none'; // Hide the dropdown
+            searchInput.value = event.target.textContent; // Set input value to clicked item
+            dropdownList.style.display = 'none'; // Hide the dropdown
         }
       });
 
-    function displayFromLocalStorage() {
-        // Retrieves saved entries from local storage
-        const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
-        savedEntriesDiv.innerHTML = '';
-        if (savedEntries.length > 0) {
-            savedEntries.forEach(entry => {
-                // Actually creates the div
-                const div = document.createElement('div');
-                div.classList.add('searched-entry');
-                // Creates a <p> element for displaying search terms
-                const searchPara = document.createElement('p');
-                // Creates the anchor element to link to something else
-               
-                searchPara.textContent = `${entry.searchTerm}`;
-                // Standard event listener but changes the font color with CSS but
-                // It goes back to normal if clicked again, not sure how to fix that yet
-                searchPara.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    searchPara.classList.toggle('clicked')
-                    const modal = document.getElementById('myModal');
-                    modal.style.display = modal.style.display === 'block' ? 'block' : 'block';
-                    // What the entry does when it is clicked will go here
-                    // What the entry does when it is clicked will go here
-                    // What the entry does when it is clicked will go here
-                    console.log(`Clicked on ${entry.searchTerm}`);
-                })
-                // Appends the paragraph and anchor element to div
-                // div.appendChild(link);
-                div.appendChild(searchPara);
-                savedEntriesDiv.appendChild(div);
-            });
-        }
-    }
+    
 
     function displayHomePage(data) {
         data.results.forEach(result => {
@@ -100,7 +67,7 @@ const dropdownList = document.getElementById('dropdownList');
         const data = await fetchSingleRecipe(id);
 
         // Save id/recipe name to local storage
-        saveToLocalStorage({name: data.title});
+        saveToLocalStorage(data.title);
 
         const title = document.getElementById('recipeTitle');
         title.textContent = '';
@@ -142,7 +109,8 @@ const dropdownList = document.getElementById('dropdownList');
     }
     // Function to actually run searched Recipes 
     async function searchRecipes() {
-        const selectedIngr = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value); // Array of selected ingredients from checkboxes
+        const checkboxes = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value);
+        const selectedIngr = checkboxes.length > 0 ? checkboxes : [];
         const searchTerm = searchInput.value.trim(); // Trim search recipe name
         resultsContainer.innerHTML = '';
         if (selectedIngr.length > 0) {
