@@ -23,10 +23,14 @@ The search bar features a convenient history of recent searches for quick access
 * Click on one of the options that display that you're interested in and a modal will show with the recipe information
 
 ### Deployed URL:
-<!-- URL -->
+
+https://warhawk1950.github.io/Zesty-Bytes/
 
 ### Screenshot:
-<!-- ![alt text](assets/images/screenshot.png) -->
+
+[Screenshot of Home page of ZestyBytes site](./Assets/zestyClip1.png)
+
+[Screenshot of chosen recipe modal opened](./Assets/zestyClip2.png)
 
 ## Credits
 
