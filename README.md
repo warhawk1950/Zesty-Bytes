@@ -28,9 +28,9 @@ https://warhawk1950.github.io/Zesty-Bytes/
 
 ### Screenshot:
 
-[Screenshot of Home page of ZestyBytes site](./Assets/zestyClip1.png)
+![Screenshot of Home page of ZestyBytes site](./Assets/zestyClip1.png)
 
-[Screenshot of chosen recipe modal opened](./Assets/zestyClip2.png)
+![Screenshot of chosen recipe modal opened](./Assets/zestyClip2.png)
 
 ## Credits
 
