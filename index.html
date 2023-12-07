@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="bg-gray-700 text-white" lang="en">
+<html class="bg-gray-700 text-white" lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,12 +11,20 @@
 
   <link rel="stylesheet" href="./assets/style.css" />
 
+
+=======
   <title>Zesty Bites</title>
+
 </head>
 
 <body class="bg-neutral-100">
   <!-- Main content container -->
   <main class="max-w-4xl mx-auto">
+
+    <nav
+      class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
+      <h1 class="text-2xl font-black">Zesty Bytes</h1>
+=======
 
     <!-- Navigation bar -->
     <nav
@@ -25,11 +34,13 @@
       <h1 class="text-2xl font-black">Zesty Bytes</h1>
 
       <!-- Search form -->
+
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
         <div class="text-gray-900 relative">
           <input type="text" id="inputField" placeholder="Search for recipe" />
-          <ul class="dropdownList" id="dropdownList"></ul>
+
+
         </div>
         <button type="submit"
           class="px-3 py-2.5 text-sm font-medium text-white bg-green-800 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -53,6 +64,19 @@
       <input type="checkbox" id="ingredient9" value="Potato" /><label for="ingredient9">Potato</label>
       <input type="checkbox" id="ingredient10" value="Butter" /><label for="ingredient10">Butter</label>
 
+    </div>
+    <!-- This is the search results -->
+    <div class="relative">
+      <div id="foodContent" class="text-white font-semibold bg-gray-900 rounded-lg flex flex-wrap gap-8 justify-center"
+        style="padding: 20px;">
+      </div>
+      <aside id="displayLocalStorage"
+        class="block max-w-sm p-6 bg-gray-900 border border-gray-900 rounded-lg shadow hidden absolute top-0 flex flex-col gap-4"
+        style="left:-275px; max-width: 262px;">
+      </aside>
+    </div>
+=======
+
       <!-- Div for saved searches-->
       <!-- <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
       </div> -->
@@ -62,6 +86,7 @@
     <div id="foodContent" class="text-white font-semibold bg-gray-900 rounded-lg flex flex-wrap gap-8 justify-center"
       style="padding: 20px;">
     </div>
+
 
     <!-- Modal toggle -->
     <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
