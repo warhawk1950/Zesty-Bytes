@@ -19,9 +19,10 @@
 
 
     <!-- Navigation bar -->
+    <nav class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
 
-    <nav
-      class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
+      <!-- Site title -->
+
       <h1 class="text-2xl font-black">Zesty Bytes</h1>
 
 
@@ -40,18 +41,25 @@
       </form>
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
-    <div>
-      <label>Main Ingredients:</label>
-      <input type="checkbox" id="ingredient1" value="Beef" /><label for="ingredient1">Beef</label>
-      <input type="checkbox" id="ingredient2" value="Chicken" /><label for="ingredient2">Chicken</label>
-      <input type="checkbox" id="ingredient3" value="Beef" /><label for="ingredient3">Pork</label>
-      <input type="checkbox" id="ingredient4" value="Fish" /><label for="ingredient4">Fish</label>
-      <input type="checkbox" id="ingredient5" value="Cheese" /><label for="ingredient5">Cheese</label>
-      <input type="checkbox" id="ingredient6" value="Sweet" /><label for="ingredient6">Sweet</label>
-      <input type="checkbox" id="ingredient7" value="Spicy" /><label for="ingredient7">Spicy</label>
-      <input type="checkbox" id="ingredient8" value="Bread" /><label for="ingredient8">Bread</label>
-      <input type="checkbox" id="ingredient9" value="Potato" /><label for="ingredient9">Potato</label>
-      <input type="checkbox" id="ingredient10" value="Butter" /><label for="ingredient10">Butter</label>
+
+    <!-- Checkbox list for main ingredients -->
+    <div class="flex gap-3 justify-space-between  items-center ps-4 border border-b border-spacing-2 border-slate-300 rounded dark:border-gray-700">
+        <label>Main Ingredients:</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient1" value="Beef"/>
+        <label for="ingredient1">Beef</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient2" value="Chicken"/>
+        <label class="" for="ingredient2">Chicken</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient3" value="Beef"/>
+        <label for="ingredient3">Pork</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient4" value="Fish"/>
+        <label for="ingredient4">Fish</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient5" value="Cheese"/>
+        <label for="ingredient5">Cheese</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient6" value="Sweet"/>
+        <label for="ingredient6">Sweet</label>
+        <input class="w-4 h-4 text-green-400 bg-gray-700 border-gray-600 rounded focus:ring-green-400 focus: ring-2" type="checkbox" id="ingredient7" value="Spicy"/>
+        <label for="ingredient7">Spicy</label>
+
 
     </div>
     <!-- This is the search results -->
@@ -78,8 +86,11 @@
         <!-- Modal content -->
         <div class="relative bg-gray-700 text-green-400 rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
-          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 id="recipeTitle" class="text-2xl font-black text-gray-900 dark:text-white">
+          <div class="flex items-center text-green-400 justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            
+            <!-- Recipe title -->
+            <h3 id="recipeTitle" class="text-2xl font-black text-green-400 dark:text-white">
+
             </h3>
             <button type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
