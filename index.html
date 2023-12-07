@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="bg-gray-700 text-white" lang="en">
-<html class="bg-gray-700 text-white" lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,18 +10,30 @@
 
   <link rel="stylesheet" href="./assets/style.css" />
 
+
   <title>Zesty Bytes</title>
-</head>
+
 
 <body class="bg-neutral-100">
   <main class="max-w-4xl mx-auto">
+
+
+    <!-- Navigation bar -->
+
     <nav
       class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
       <h1 class="text-2xl font-black">Zesty Bytes</h1>
+
+
+      <!-- Search form -->
+
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
         <div class="text-gray-900 relative">
           <input type="text" id="inputField" placeholder="Search for recipe" />
+
+          <ul class="dropdownList" id="dropdownList"></ul>
+
         </div>
         <button type="submit"
           class="px-3 py-2.5 text-sm font-medium text-white bg-green-800 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -41,6 +52,7 @@
       <input type="checkbox" id="ingredient8" value="Bread" /><label for="ingredient8">Bread</label>
       <input type="checkbox" id="ingredient9" value="Potato" /><label for="ingredient9">Potato</label>
       <input type="checkbox" id="ingredient10" value="Butter" /><label for="ingredient10">Butter</label>
+
     </div>
     <!-- This is the search results -->
     <div class="relative">
@@ -52,6 +64,7 @@
         style="left:-275px; max-width: 262px;">
       </aside>
     </div>
+
     <!-- Modal toggle -->
     <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
       type="button">

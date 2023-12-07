@@ -1,4 +1,5 @@
 // DOM Elements and Global Variables
+
 const apiKey = '1b4033d0fab74f9baa5f8b0d1950e612';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
@@ -16,6 +17,7 @@ searchForm.addEventListener('submit', function (event) {
 
 function displayHomePage(data) {
     data.results.forEach(result => {
+
         const recipeElement = document.createElement('div');
         recipeElement.addEventListener('click', () => displaySingleRecipe(result.id));
         recipeElement.classList.add('cursor-pointer');
@@ -24,11 +26,14 @@ function displayHomePage(data) {
         h3.textContent = result.title;
         img.src = result.image;
         h3.classList.add('word-wrapper');
+
         img.classList.add('rounded-lg')
+
         recipeElement.classList.add('recipe-container');
         recipeElement.appendChild(h3);
         recipeElement.appendChild(img);
         resultsContainer.appendChild(recipeElement);
+
     })
 }
 function removeFirstATagAndAfter(htmlString) {
@@ -61,6 +66,7 @@ async function displaySingleRecipe(id) {
     // Save id/recipe name to local storage
     saveToLocalStorage(data.title, data.id);
 
+
     const title = document.getElementById('recipeTitle');
     title.textContent = '';
     title.textContent = data.title;
@@ -71,7 +77,9 @@ async function displaySingleRecipe(id) {
     img.classList.add('w-full', 'rounded-lg');
     box.appendChild(img);
     const summary = document.createElement('p');
+
     summary.innerHTML = removeFirstATagAndAfter(data.summary);
+
     const instructions = document.createElement('div');
     instructions.innerHTML = data.instructions;
     const servingSize = document.getElementById('servings');
@@ -82,6 +90,7 @@ async function displaySingleRecipe(id) {
     readyTime.textContent = data.readyInMinutes;
     box.appendChild(summary);
     box.appendChild(instructions);
+
     toggleBtn.click();
 }
 function displayLocalStorage() {
@@ -108,10 +117,12 @@ function saveToLocalStorage(recipeName, id) {
     const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
     // Check if the entry already exists in the local storage
     const existingEntryIndex = savedEntries.findIndex(entry => entry.recipeName === recipeName);
+
     if (existingEntryIndex !== -1) {
         // Remove the existing entry to move it to the top
         savedEntries.splice(existingEntryIndex, 1);
     }
+
     if (savedEntries.length == 5) {
         savedEntries.pop();
     }
@@ -126,10 +137,12 @@ function saveToLocalStorage(recipeName, id) {
     localStorage.setItem('SavedEntries', JSON.stringify(savedEntries));
     displayLocalStorage()
 }
+
 // Function to actually run searched Recipes 
 async function searchRecipes() {
     const checkboxes = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(checkbox => checkbox.value);
     const selectedIngr = checkboxes.length > 0 ? checkboxes : [];
+
     const searchTerm = searchInput.value.trim(); // Trim search recipe name
     resultsContainer.innerHTML = '';
     if (selectedIngr.length > 0) {
@@ -143,6 +156,7 @@ async function searchRecipes() {
 }
 async function fetchSingleRecipe(id) {
     const URL = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${apiKey}`
+
     try {
         const response = await fetch(URL);
         const data = await response.json();
@@ -152,8 +166,10 @@ async function fetchSingleRecipe(id) {
         console.error('Error fetching URL', error.message);
     }
 }
+
 async function fetchSearchTerm(searchTerm) {
     const URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}&type=appetizer&number=6`
+
     try {
         const response = await fetch(URL);
         const data = await response.json();
@@ -163,8 +179,10 @@ async function fetchSearchTerm(searchTerm) {
         console.error('Error fetching URL', error.message);
     }
 }
+
 async function fetchSearchAndIng(searchTerm, ingredients) {
     const URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}&type=appetizer&number=6&includeIngredients=${ingredients}`
+
     try {
         const response = await fetch(URL);
         const data = await response.json();
@@ -174,6 +192,7 @@ async function fetchSearchAndIng(searchTerm, ingredients) {
         console.error('Error fetching URL', error.message);
     }
 }
+
 async function init() {
     let loading = document.createElement('p');
     resultsContainer.appendChild(loading);
