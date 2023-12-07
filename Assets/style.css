@@ -15,3 +15,6 @@ ol {
   width: 100%;
   align-self: end;
 }
+html {
+  cursor: url("cursor.png"), auto
+}
