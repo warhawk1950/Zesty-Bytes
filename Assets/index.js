@@ -36,6 +36,7 @@ function displayHomePage(data) {
 
     })
 }
+
 function removeFirstATagAndAfter(htmlString) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlString, 'text/html');
@@ -93,9 +94,10 @@ async function displaySingleRecipe(id) {
 
     toggleBtn.click();
 }
+
 function displayLocalStorage() {
     const localStorageDis = document.getElementById('displayLocalStorage');
-    const savedEntries = JSON.parse(localStorage.getItem('SavedEntries'));
+    const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || []; 
     if (savedEntries.length > 0) {
         localStorageDis.classList.remove('hidden');
         localStorageDis.innerHTML = '';
@@ -112,6 +114,7 @@ function displayLocalStorage() {
         });
     }
 }
+
 // Function to save recipie name into local storage
 function saveToLocalStorage(recipeName, id) {
     const savedEntries = JSON.parse(localStorage.getItem('SavedEntries')) || [];
