@@ -14,43 +14,55 @@
 </head>
 
 <body class="bg-neutral-100">
+  <!-- Main content container -->
   <main class="max-w-4xl mx-auto">
-    <nav class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
+
+    <!-- Navigation bar -->
+    <nav
+      class="flex flex-row justify-between items-center border border-blue-50 bg-green-600 text-purple-200 rounded-lg m-3 py-3 px-5 shadow-xl gap-5">
+
+      <!-- Site title -->
       <h1 class="text-2xl font-black">Zesty Bytes</h1>
+
+      <!-- Search form -->
       <form id="searchForm" class="flex flex-row gap-1">
         <label class="sr-only">Search a Finger Food</label>
         <div class="text-gray-900 relative">
-        <input type="text" id="inputField" placeholder="Search for recipe" />
-        <ul class="dropdownList" id="dropdownList"></ul>
+          <input type="text" id="inputField" placeholder="Search for recipe" />
+          <ul class="dropdownList" id="dropdownList"></ul>
         </div>
         <button type="submit"
           class="px-3 py-2.5 text-sm font-medium text-white bg-green-800 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
       </form>
+
+      <!-- External link to GitHub -->
       <a href="https://www.github.com/" target="_blank" class="underline font-semibold">Github</a>
     </nav>
+
+    <!-- Checkbox list for main ingredients -->
     <div>
       <label>Main Ingredients:</label>
-        <input type="checkbox" id="ingredient1" value="Beef"/><label for="ingredient1">Beef</label>
-        <input type="checkbox" id="ingredient2" value="Chicken"/><label for="ingredient2">Chicken</label>
-        <input type="checkbox" id="ingredient3" value="Beef"/><label for="ingredient3">Pork</label>
-        <input type="checkbox" id="ingredient4" value="Fish"/><label for="ingredient4">Fish</label>
-        <input type="checkbox" id="ingredient5" value="Cheese"/><label for="ingredient5">Cheese</label>
-        <input type="checkbox" id="ingredient6" value="Sweet"/><label for="ingredient6">Sweet</label>
-        <input type="checkbox" id="ingredient7" value="Spicy"/><label for="ingredient7">Spicy</label>
-        <input type="checkbox" id="ingredient8" value="Bread"/><label for="ingredient8">Bread</label>
-        <input type="checkbox" id="ingredient9" value="Potato"/><label for="ingredient9">Potato</label>
-        <input type="checkbox" id="ingredient10" value="Butter"/><label for="ingredient10">Butter</label>
-
+      <input type="checkbox" id="ingredient1" value="Beef" /><label for="ingredient1">Beef</label>
+      <input type="checkbox" id="ingredient2" value="Chicken" /><label for="ingredient2">Chicken</label>
+      <input type="checkbox" id="ingredient3" value="Beef" /><label for="ingredient3">Pork</label>
+      <input type="checkbox" id="ingredient4" value="Fish" /><label for="ingredient4">Fish</label>
+      <input type="checkbox" id="ingredient5" value="Cheese" /><label for="ingredient5">Cheese</label>
+      <input type="checkbox" id="ingredient6" value="Sweet" /><label for="ingredient6">Sweet</label>
+      <input type="checkbox" id="ingredient7" value="Spicy" /><label for="ingredient7">Spicy</label>
+      <input type="checkbox" id="ingredient8" value="Bread" /><label for="ingredient8">Bread</label>
+      <input type="checkbox" id="ingredient9" value="Potato" /><label for="ingredient9">Potato</label>
+      <input type="checkbox" id="ingredient10" value="Butter" /><label for="ingredient10">Butter</label>
 
       <!-- Div for saved searches-->
-
       <!-- <div id="savedEntriesDiv" class="font-semibold ml-3 text-white font-semibold px-3 py-2 bg-blue-500 rounded-lg">
       </div> -->
     </div>
-    <!-- This is the search results -->
+
+    <!-- Search results container -->
     <div id="foodContent" class="text-white font-semibold bg-gray-900 rounded-lg flex flex-wrap gap-8 justify-center"
-    style="padding: 20px;">
-  </div>
+      style="padding: 20px;">
+    </div>
+
     <!-- Modal toggle -->
     <button id="toggleBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" class="hidden"
       type="button">
@@ -61,12 +73,18 @@
     <div id="default-modal" tabindex="-1" aria-hidden="true"
       class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 text-green-400 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div class="relative p-4 w-full max-w-2xl max-h-full">
+        
         <!-- Modal content -->
         <div class="relative bg-gray-700 text-green-400 rounded-lg shadow dark:bg-gray-700">
+          
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+            
+            <!-- Recipe title -->
             <h3 id="recipeTitle" class="text-2xl font-black text-green-400 dark:text-white">
             </h3>
+
+            <!-- Close modal button -->
             <button type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-green-400 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="default-modal">
@@ -78,6 +96,8 @@
               <span class="sr-only">Close modal</span>
             </button>
           </div>
+
+          <!-- Recipe details -->
           <div class="p-4 md:p-5 flex flex-row justify-between items-center font-bold">
             <p>User Score: <span id="userScore"></span>%</p>
             <p>Ready in: <span id="readyTime"></span> minutes</p>
@@ -94,9 +114,9 @@
   </div>
   </main>
 
+  <!-- Script tags for custom JavaScript and external library -->
   <script src="./Assets/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>
-
