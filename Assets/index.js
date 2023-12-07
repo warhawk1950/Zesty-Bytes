@@ -1,6 +1,6 @@
 // DOM Elements and Global Variables
 
-const apiKey = '1b4033d0fab74f9baa5f8b0d1950e612';
+const apiKey = '3bd2964a72284bbe96c1747a38e6b085';
 
 const searchInput = document.querySelector('input'); // Gets the user input from the search field
 const searchForm = document.getElementById('searchForm'); // Gets the form element
